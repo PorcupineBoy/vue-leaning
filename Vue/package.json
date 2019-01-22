@@ -1,0 +1,22 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "description": "vue Demo",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/PorcupineBoy/vue-leaning.git"
+  },
+  "author": "porcupine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PorcupineBoy/vue-leaning/issues"
+  },
+  "homepage": "https://github.com/PorcupineBoy/vue-leaning#readme"
+}
