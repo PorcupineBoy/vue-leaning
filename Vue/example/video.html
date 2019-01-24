@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 400px;height: 400px;border: 1px solid black">
+        <video id="myvideo" muted autoplay></video>
+        <canvas id="canvas"></canvas>
+
+    </div>
+    <div style="float:right;"> 
+            <button onclick="kaca()">咔嚓自拍</button>
+            <button>
+                开始录制
+            </button>
+            <button>
+                停止录制
+            </button>
+            <button>播放</button>
+            <img id="face"src="">
+    </div>
+    <script>
+
+        var video=document.getElementById("myvideo");
+        var stream;
+        var canvas=document.getElementById("canvas");
+        function kaca(){
+            
+            canvas.width=video.clientWidth;
+            canvas.height=video.clientHeight;
+            var context=canvas.getContext("2d");
+            context.drawImage(video,0,0);
+
+            var img=canvas.toDataURL();
+            var face=document.getElementById("face")
+            face.src=img;
+        }
+        
+        function success(stream){
+            console.log("调用成功");
+            video.srcObject=stream;
+            window.stream=stream;
+        }
+        function error(){
+            console.log("调用失败");
+        }
+        navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(success).catch(error);
+    </script>
+</body>
+</html>
